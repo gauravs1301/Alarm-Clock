@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Clock</title>
+  </head>
+  <body>
+    <!--Creating a parent div to hold the clock and alarm input elements-->
+    <div class="parent">
+      <div>
+        <!--Creating a wrapper div to hold the clock display-->
+        <div class="wrapper">
+          <div class="display">
+            <!--Creating a div to display the time-->
+            <div id="time">12:00:00</div>
+          </div>
+          <!--Creating two spans to represent the clock hands-->
+          <span></span>
+          <span></span>
+        </div>
+        <!--Creating a div to hold the alarm input form-->
+        <div class="alarm_input">
+          <form id="form-name">
+            <!--Creating input fields for the hour, minutes and seconds of the alarm-->
+            <input
+              id="hour"
+              type="number"
+              placeholder="hr"
+              max="23"
+              min="0"
+              required="true"
+            />
+            <input
+              id="minutes"
+              type="number"
+              placeholder="min"
+              required="true"
+              max="59"
+              min="0"
+            />
+            <input
+              id="seconds"
+              type="number"
+              placeholder="sec"
+              required="true"
+              max="59"
+              min="0"
+            />
+            <!--Creating buttons to set and stop the alarm-->
+            <button type="submit" id="setAlarm">Set Alarm</button>
+            <button type="reset" id="stopAlarm">Stop Alarm</button>
+          </form>
+        </div>
+      </div>
+
+      <div>
+        <!--Creating a div to hold the upcoming alarms list-->
+        <div class="showList">
+          <!--Creating a heading for the upcoming alarms section-->
+          <div id="upcomingAlarmText">Upcoming Alarms</div>
+          <!--Creating a container for the list of upcoming alarms-->
+          <div class="alarmListContainer">
+            <ul id="alarmList"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Linking the JavaScript file to the HTML file-->
+    <script src="index.js"></script>
+  </body>
+</html>
