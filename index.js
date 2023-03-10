@@ -48,14 +48,30 @@ setAlarm.addEventListener("click", (e) => {
   e.preventDefault();
 
   // Get the hour, minute, and second values entered by the user
-  alarmHour = hourInput.value < 10 ? "0" + hourInput.value : hourInput.value;
-  alarmMinute =
-    minutesInput.value < 10 ? "0" + minutesInput.value : minutesInput.value;
-  alarmSecond =
-    secondsInput.value < 10 ? "0" + secondsInput.value : secondsInput.value;
+  const alarmHour = parseInt(hourInput.value);
+  const alarmMinute = parseInt(minutesInput.value);
+  const alarmSecond = parseInt(secondsInput.value);
+
+  // Check if the entered time is valid
+  if (
+    isNaN(alarmHour) ||
+    isNaN(alarmMinute) ||
+    isNaN(alarmSecond) ||
+    alarmHour < parseInt(hourInput.min) ||
+    alarmHour > parseInt(hourInput.max) ||
+    alarmMinute < parseInt(minutesInput.min) ||
+    alarmMinute > parseInt(minutesInput.max) ||
+    alarmSecond < parseInt(secondsInput.min) ||
+    alarmSecond > parseInt(secondsInput.max)
+  ) {
+    alert("The entered time is not correct");
+    return;
+  }
 
   // Create a string representation of the alarm time
-  alarmTime = `${alarmHour} : ${alarmMinute} : ${alarmSecond}`;
+  const alarmTime = `${alarmHour.toString().padStart(2, "0")} : ${alarmMinute
+    .toString()
+    .padStart(2, "0")} : ${alarmSecond.toString().padStart(2, "0")}`;
 
   // Check if the alarm time is already in the alarmArray
   if (!alarmArray.includes(alarmTime)) {
